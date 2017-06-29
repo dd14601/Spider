@@ -13,7 +13,8 @@ def spider():
     for i in range(1,50):
 
 
-        url = 'http://www.ziroom.com/z/nl/z2.html?qwd=&p='+str(i)
+        #url = 'http://www.ziroom.com/z/nl/z2.html?qwd=&p='+str(i)  #自如合租
+        url = 'http://www.ziroom.com/z/nl/z1.html?p='+str(i)   #自如整租
         r = requests.get(url,headers=headers).content
         sel = html.fromstring(r)
         houses = sel.xpath('//li[@class="clearfix"]') #获取每个房子的主节点
@@ -45,7 +46,7 @@ def spider():
 def data_process(data):
     df = pd.DataFrame(data)  #将数据格式化后处理
     #print(data)
-    df.to_excel('ziru_house.xlsx')  #写入xlsx中
+    df.to_excel('ziru_zhengzu.xlsx')  #写入xlsx中
 
 if __name__ == '__main__':
     house_list = spider()
