@@ -22,7 +22,7 @@ def spider(url_lists):
         soup = BeautifulSoup(s, "html.parser")
         soup_list = soup.find("tbody").find_all('tr')
         for tr_td in soup_list:       #匹配时间
-            if tr_td.find(text=['2017-06-22','2017-06-21','2017-06-20','2017-06-19']) != None:  #时间如果选择正确的话，选取url
+            if tr_td.find(text=['2017-06-24','2017-06-25','2017-06-26','2017-06-27','2017-06-28','2017-06-29','2017-06-30']) != None:  #时间如果选择正确的话，选取url
                 tr_td_des = tr_td.find('td',{'class':'description'})
                 tr_td_url = tr_td_des.find('a').get('href')    #获取链接
                 url_list.append(tr_td_url)
