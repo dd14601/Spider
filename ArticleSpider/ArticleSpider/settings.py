@@ -74,6 +74,9 @@ IMAGES_URLS_FIELD = "front_image_url"
 project_dir = os.path.abspath(os.path.dirname(__file__))
 IMAGES_STORE = os.path.join(project_dir, 'images')
 
+import os
+import sys
+sys.path.insert(0,"G:\Spider\ArticleSpider\ArticleSpider")
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True
@@ -99,3 +102,6 @@ MYSQL_HOST = "127.0.0.1"
 MYSQL_DBNAME = "article_spider"
 MYSQL_USER = "root"
 MYSQL_PASSWORD = "123456"
+
+SQL_DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
+SQL_DATE_FORMAT = "%Y-%m-%d"

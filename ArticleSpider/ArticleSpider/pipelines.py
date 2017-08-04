@@ -57,11 +57,11 @@ class MysqlTwistedPipline(object):
         print(failure)
 
     def do_insert(self,cursor,item):
-        insert_sql = """
-            insert into jobbole_article(title,url,url_object_id,create_date,fav_nums,tags,content)
-            VALUES (%s, %s, %s, %s, %s, %s,   %s)
-        """
-        cursor.execute(insert_sql, (item["title"], item["url"], item["url_object_id"], item["create_date"], item["fav_nums"], item["tags"], item["content"] ))
+        #执行具体的插入
+        #根据不同的item 构建不用的sql语句并插入到mysql中
+        insert_sql,params = item.get_insert_sql()
+        print(insert_sql,params)
+        cursor.execute(insert_sql,params)
 
 
 class JsonExporterPipline(object):
