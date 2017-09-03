@@ -9,7 +9,8 @@ import json
 from scrapy.pipelines.images import ImagesPipeline
 from scrapy.exporters import JsonItemExporter
 from twisted.enterprise import adbapi
-
+from models.es_types import ArticleType
+from w3lib.html import remove_tags
 import MySQLdb
 import MySQLdb.cursors
 
@@ -87,3 +88,9 @@ class ArticleImagePipline(ImagesPipeline):
 
         return item
 
+class ElasticsearchPipline(object):
+
+    def process_item(self, item, spider):
+        item.save_to_es()
+
+        return item

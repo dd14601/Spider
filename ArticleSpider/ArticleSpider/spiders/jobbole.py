@@ -14,6 +14,10 @@ class JobboleSpider(scrapy.Spider):
     allowed_domains = ['blog.jobbole.com']
     start_urls = ['http://blog.jobbole.com/all-posts/']
 
+    custom_settings = {
+        "COOKIES_ENABLED": True
+    }
+
     def parse(self, response):
         #获取文章的url并交给scrapy下载并解析
         post_nodes = response.css("#archive .floated-thumb .post-thumb a")

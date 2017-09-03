@@ -26,7 +26,9 @@ class ZhihuSpider(scrapy.Spider):
         "Referer": "https://www.zhihu.com",
         "User-Agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Mobile Safari/537.36"
     }
-
+    custom_settings = {
+        "COOKIES_ENABLED":   True
+    }
     def parse(self, response):
         """
                 提取出html页面中的所有url 并跟踪这些url进行一步爬取
