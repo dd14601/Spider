@@ -256,14 +256,20 @@ class AutoHomeItem(scrapy.Item):
     #汽车之家车价信息
     car_brand = scrapy.Field()
     car_type = scrapy.Field()
-    #car_tpye_detail = scrapy.Field()
+    car_tpye_detail = scrapy.Field()
+    car_detail = scrapy.Field(
+        output_processor=Join(",")
+    )
     car_guidance_price = scrapy.Field()
-    #car_dealer_price = scrapy.Field()
+    # car_dealer_price = scrapy.Field()
     def save_to_es(self):
         authhome = AutoHomeType()
         authhome.car_brand = self['car_brand']
         authhome.car_type = self['car_type']
+        authhome.car_tpye_detail = self['car_tpye_detail']
+        authhome.car_deail = self['car_detail']
         authhome.car_guidance_price = self['car_guidance_price']
+        # authhome.car_dealer_price = self['car_dealer_price']
 
         authhome.save()
         return

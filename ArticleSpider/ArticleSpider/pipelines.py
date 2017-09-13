@@ -91,6 +91,6 @@ class ArticleImagePipline(ImagesPipeline):
 class ElasticsearchPipline(object):
 
     def process_item(self, item, spider):
-        item.save_to_es()
+         item.save_to_es()
 
         return item

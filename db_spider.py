@@ -12,7 +12,7 @@ import threading
 def spider(url_lists):
     header = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36",
-        "Cookie": "__unam=d0030f5-15c38515312-64b85969-134; PHPSESSID=upnppon2uhghl7k1qocks84mu3; _ga=GA1.3.261928195.1495593473; _gid=GA1.3.8028"
+        "Cookie": "_ga=GA1.3.1928556321.1498810534; _gid=GA1.3.1136116182.1499911081; PHPSESSID=809d4hp69hh37mnb76a5ofhlc0"
     }
     #url = 'https://www.exploit-db.com/dos/'
     url_list = []
@@ -22,7 +22,7 @@ def spider(url_lists):
         soup = BeautifulSoup(s, "html.parser")
         soup_list = soup.find("tbody").find_all('tr')
         for tr_td in soup_list:       #匹配时间
-            if tr_td.find(text=['2017-06-24','2017-06-25','2017-06-26','2017-06-27','2017-06-28','2017-06-29','2017-06-30']) != None:  #时间如果选择正确的话，选取url
+            if tr_td.find(text=['2017-09-02','2017-09-03','2017-09-04','2017-09-05','2017-09-06','2017-09-07','2017-09-08']) != None:  #时间如果选择正确的话，选取url
                 tr_td_des = tr_td.find('td',{'class':'description'})
                 tr_td_url = tr_td_des.find('a').get('href')    #获取链接
                 url_list.append(tr_td_url)
@@ -33,7 +33,7 @@ def spider(url_lists):
 def spider_list(url_list):
     header = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36",
-        "Cookie": "__unam=d0030f5-15c7b6e83b8-53ce64ff-73; PHPSESSID=6fed2296luc35qsnapimq0tqs5; _ga=GA1.3.1828391708.1496719375; _gid=GA1.3.86998437.1498099131"
+        "Cookie": "PHPSESSID=5h387mqtl1e8v1b99jjlokh423; _gat=1; _ga=GA1.3.1928556321.1498810534; _gid=GA1.3.754929645.1504837439"
     }
     dblist = []     #将想要的结果写入列表中
     for url in url_list:
