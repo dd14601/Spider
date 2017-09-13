@@ -5,9 +5,9 @@ __time__ = '2017/9/13'
 import os
 import re
 
-dir = "F:\\axd_topsec\\waf\\cms_tag\\2.joomal_attack.conf" #文件所在文件夹
-file_num = 'joomal-20204' #需要匹配的文件名称
-file_tag = 'rfi' #漏洞tag
+dir = "path" #文件所在文件夹
+file_num = 'number' #需要匹配的文件名称
+file_tag = 'tag' #漏洞tag
 file_re = str(file_num+'\d{2}') #拼凑正则
 for file in os.listdir(dir):
     OldDir = os.path.join(dir,file) #源文件路径
